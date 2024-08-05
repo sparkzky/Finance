@@ -8,12 +8,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>,
 );
 
-// dev
-// dev
-
-// dev
-// dev
-
-
-// dev
-// dev
