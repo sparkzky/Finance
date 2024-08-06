@@ -1,94 +1,56 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import { invoke } from "@tauri-apps/api/tauri";
-// import "./styles/App.css";
-
-
-
-// function App() {
-//   const [greetMsg, setGreetMsg] = useState("");
-//   const [name, setName] = useState("");
-
-//   async function greet() {
-//     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-//     setGreetMsg(await invoke("greet", { name }));
-//   }
-
-//   return (
-//     <div className="container">
-//       <h1>Welcome to Tauri!</h1>
-
-//       <div className="row">
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-//         </a>
-//         <a href="https://tauri.app" target="_blank">
-//           <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-//         </a>
-//         <a href="https://reactjs.org" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-
-//       <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-//       <form
-//         className="row"
-//         onSubmit={(e) => {
-//           e.preventDefault();
-//           greet();
-//         }}
-//       >
-//         <input
-//           id="greet-input"
-//           onChange={(e) => setName(e.currentTarget.value)}
-//           placeholder="Enter a name..."
-//         />
-//         <button type="submit">Greet</button>
-//       </form>
-
-//       <p>{greetMsg}</p>
-//     </div>
-//   );
-// }
-
-
-import React, { useState } from 'react';
-import Login from './components/Login';
-import Sidebar from './components/Sidebar';
-import Overview from './components/Overview';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Accounts from './components/Accounts';
 import Transactions from './components/Transactions';
 import Reports from './components/Reports';
+import Budget from './components/Budget';
+import Alerts from './components/Alerts';
 import Settings from './components/Settings';
-import './styles/App.css';
-import { invoke } from '@tauri-apps/api';
+import Goals from './components/Goals';
+import './styles/App.css'; // 引入自定义CSS
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState('');
-
-  const handleLogin = (username) => {
-    setCurrentUser(username);
-    setLoggedIn(true);
-  };
-
-  const renderAppContent = () => {
-    if (!loggedIn) {
-      return <Login onLogin={handleLogin} />;
-    }
-
-    return (
-      <>
-        <Sidebar />
-        <div className="main-content">
-          <Overview />
-          {/* Add other components/routes based on application flow */}
-        </div>
-      </>
-    );
-  };
-
-  return <div className="app">{renderAppContent()}</div>;
+  return (
+    <Router>
+      <div className="app-container">
+        <header className="app-header">
+          <h1>个人财务管理</h1>
+          <nav className="app-nav">
+            <Link to="/accounts">账户管理</Link>
+            <Link to="/transactions">交易记录</Link>
+            <Link to="/reports">财务报表</Link>
+            <Link to="/budget">预算管理</Link>
+            <Link to="/alerts">账单提醒</Link>
+            <Link to="/settings">设置</Link>
+            <Link to="/goals">财务目标</Link>
+          </nav>
+        </header>
+        {/* <aside className="app-sidebar">
+          <ul>
+            <li><Link to="/accounts">账户管理</Link></li>
+            <li><Link to="/transactions">交易记录</Link></li>
+            <li><Link to="/reports">财务报表</Link></li>
+            <li><Link to="/budget">预算管理</Link></li>
+            <li><Link to="/alerts">账单提醒</Link></li>
+            <li><Link to="/settings">设置</Link></li>
+            <li><Link to="/goals">财务目标</Link></li>
+          </ul>
+        </aside> */}
+        <main className="app-main">
+          <Routes>
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/budget" element={<Budget />} />
+            <Route path="/alerts" element={<Alerts />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/goals" element={<Goals />} />
+            <Route path="/" element={<Accounts />} /> {/* 默认页面 */}
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
 };
 
 export default App;

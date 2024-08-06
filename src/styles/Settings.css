@@ -1,46 +1,27 @@
 .settings-container {
-    width: 100%;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .settings-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .settings-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .settings-form label {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .settings-form select,
-  .settings-form button {
-    padding: 8px;
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  
-  .settings-form select {
-    width: 100%;
-  }
-  
-  .settings-form button {
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .settings-form button:hover {
-    background-color: #2980b9;
-  }
-  
+  padding: 20px;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+}
+
+.settings-section h3 {
+  margin: 0 0 10px;
+}
+
+.settings-section select {
+  padding: 10px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.save-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}

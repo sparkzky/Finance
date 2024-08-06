@@ -1,0 +1,25 @@
+.budget-container {
+    padding: 20px;
+  }
+  
+  .budget-summary {
+    margin-bottom: 20px;
+  }
+  
+  .budget-summary h3 {
+    margin: 0;
+  }
+  
+  .budget-summary h4 {
+    margin: 10px 0;
+  }
+  
+  .budget-summary button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
