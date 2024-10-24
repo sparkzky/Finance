@@ -1,4 +1,4 @@
-.alerts-container {
+/* .alerts-container {
     padding: 20px;
   }
   
@@ -40,4 +40,174 @@
     border-radius: 3px;
     cursor: pointer;
   }
-  
+   */
+
+/* 引入backdrop滤镜效果 */
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons&display=swap");
+
+.alerts-container {
+  font-family: "San Francisco", "Arial", sans-serif; /* 苹果系统默认字体 */
+  color: #333;
+  text-align: center;
+  background-color: #f2f2f2; /* 添加背景颜色 */
+  padding: 20px;
+}
+
+.add-alert-btn {
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s; /* 按钮悬停效果 */
+}
+
+.add-alert-btn:hover {
+  background-color: #0056b3;
+}
+
+.alert-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.alert-card {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: calc(33.333% - 20px); /* 考虑到边距，实际宽度会比计算值小 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert-card h3 {
+  margin-top: 0;
+}
+
+.alert-card button {
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* 按钮悬停效果 */
+}
+
+.alert-card button:hover {
+  background-color: #0056b3;
+}
+
+/* 弹窗和背景模糊的样式 */
+.edit-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* 模糊背景 */
+  background-color: rgba(0, 0, 0, 0.5); /* 黑色背景 */
+}
+
+.edit-modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px; /* 根据需要调整宽度 */
+  z-index: 1001; /* 确保弹窗在背景之上 */
+}
+
+.edit-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* 确保背景在弹窗之下 */
+}
+
+/* 确保输入框和按钮与背景颜色形成对比 */
+input,
+button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: calc(100% - 20px); /* 宽度调整，减去边框和内边距 */
+}
+
+/* 确保按钮悬停效果与背景颜色形成对比 */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 调整按钮大小 */
+.add-alert-btn,
+.alert-card button {
+  font-size: 14px; /* 减小按钮字体大小 */
+  padding: 5px 10px; /* 减小按钮内边距 */
+}
+
+/* 调整弹窗输入框大小 */
+.edit-modal input {
+  width: calc(100% - 30px); /* 宽度调整，减去边框和内边距 */
+}
+
+/* 确保弹窗内输入框和按钮与背景颜色形成对比 */
+.edit-modal input{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: calc(100% - 20px); /* 宽度调整，减去边框和内边距 */
+}
+.edit-modal button {
+  background-color: #0056b3;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: calc(100% - 180px); /* 宽度调整，减去边框和内边距 */
+  /*居中分布*/
+
+  margin-left: 30%;
+}
+
+/* 确保弹窗内按钮悬停效果与背景颜色形成对比 */
+.edit-modal button:hover {
+  background-color: #0056b3;
+}
+
+/* 完成按钮的样式 */
+.edit-modal-button {
+  font-size: 14px; /* 减小按钮字体大小 */
+  padding: 5px 10px; /* 减小按钮内边距 */
+  width: calc(100% - 20px); /* 宽度调整，减去边框和内边距 */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #007aff; /* 更改为蓝色 */
+}
+
+/* 完成按钮悬停效果 */
+.edit-modal-button:hover {
+  background-color: #0056b3;
+}

@@ -7,35 +7,48 @@ import Budget from './components/Budget';
 import Alerts from './components/Alerts';
 import Settings from './components/Settings';
 import Goals from './components/Goals';
-import './styles/App.css'; // 引入自定义CSS
+import './styles/App.css'; 
+import { FaUser, FaMoneyBill, FaChartLine, FaCalendar, FaBell, FaCog, FaBullseye } from 'react-icons/fa';
+import { invoke } from '@tauri-apps/api/tauri';
 
 const App = () => {
+  const [info, setInfo] = React.useState('');
+  const fetchInfoFromBackend = async () => {
+    try {
+      const info = await invoke('fuck');
+      setInfo(info)
+    }
+    catch (e) {
+      console.error(e)
+    }
+  }
+  const greet = async (name) => {
+    try {
+      const info = await invoke('greet', { name });
+      setInfo(info)
+    }
+    catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <Router>
       <div className="app-container">
+        {/* <button onClick={fetchInfoFromBackend}>获取信息</button>
+        <input type="text" placeholder="请输入姓名" onChange={(e) => greet(e.target.value)}></input> */}
         <header className="app-header">
-          <h1>个人财务管理</h1>
+          <h1>个人财务管理{info}</h1>
           <nav className="app-nav">
-            <Link to="/accounts">账户管理</Link>
-            <Link to="/transactions">交易记录</Link>
-            <Link to="/reports">财务报表</Link>
-            <Link to="/budget">预算管理</Link>
-            <Link to="/alerts">账单提醒</Link>
-            <Link to="/settings">设置</Link>
-            <Link to="/goals">财务目标</Link>
+            <Link to="/accounts"><FaUser className="icon" /> 账户管理</Link>
+            <Link to="/transactions"><FaMoneyBill className="icon" /> 交易记录</Link>
+            <Link to="/reports"><FaChartLine className="icon" /> 财务报表</Link>
+            <Link to="/budget"><FaCalendar className="icon" /> 预算管理</Link>
+            <Link to="/alerts"><FaBell className="icon" /> 账单提醒</Link>
+            <Link to="/settings"><FaCog className="icon" /> 设置</Link>
+            <Link to="/goals"><FaBullseye className="icon" /> 财务目标</Link>
           </nav>
         </header>
-        {/* <aside className="app-sidebar">
-          <ul>
-            <li><Link to="/accounts">账户管理</Link></li>
-            <li><Link to="/transactions">交易记录</Link></li>
-            <li><Link to="/reports">财务报表</Link></li>
-            <li><Link to="/budget">预算管理</Link></li>
-            <li><Link to="/alerts">账单提醒</Link></li>
-            <li><Link to="/settings">设置</Link></li>
-            <li><Link to="/goals">财务目标</Link></li>
-          </ul>
-        </aside> */}
         <main className="app-main">
           <Routes>
             <Route path="/accounts" element={<Accounts />} />

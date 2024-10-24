@@ -1,25 +1,55 @@
 .budget-container {
-    padding: 20px;
-  }
-  
-  .budget-summary {
-    margin-bottom: 20px;
-  }
-  
-  .budget-summary h3 {
-    margin: 0;
-  }
-  
-  .budget-summary h4 {
-    margin: 10px 0;
-  }
-  
-  .budget-summary button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  font-family: 'San Francisco', 'Arial', sans-serif; /* 苹果系统默认字体 */
+  color: #333;
+  text-align: justify; /* 文本对齐方式 */
+}
+
+.budget-summary {
+  margin-bottom: 20px;
+}
+
+.budget-summary button {
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 8px; /* 圆角按钮 */
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.budget-input_container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.budget-input_container input {
+  flex-grow: 0.5; /* 使输入框占据更多空间 */
+  border: 1px solid #ccc; /* 文本框边框 */
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 8px; /* 圆角文本框 */
+  font-size: 16px;
+  width: 150px; /* 宽度调整 */
+  height: 27px; /* 高度调整 */
+}
+
+.budget-input_container button {
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 8px; /* 圆角按钮 */
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* 按钮悬停效果 */
+  width: 150px; /* 宽度调整 */
+  height: 40px; /* 高度调整，与输入框高度一致 */
+}
+
+.budget-input_container button:hover {
+  background-color: #0056b3;
+}

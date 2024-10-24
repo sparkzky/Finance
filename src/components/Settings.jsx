@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Settings.css'; // 引入自定义CSS
+import { invoke } from '@tauri-apps/api/tauri';
 
 const Settings = () => {
   const [theme, setTheme] = useState('light');
@@ -11,9 +12,22 @@ const Settings = () => {
     alert('设置已保存');
   };
 
+  const [info, setInfo] = useState("")
+  const godDamnIt = async () => {
+    try {
+      const info = await invoke("god_damn_it");
+      setInfo(info);
+    }
+    catch (e) {
+      console.log("damn")
+    }
+  }
+
+  godDamnIt()
+
   return (
     <div className="settings-container">
-      <h2>设置</h2>
+      <h2>设置 {info}</h2>
       <div className="settings-section">
         <h3>主题</h3>
         <select value={theme} onChange={e => setTheme(e.target.value)}>

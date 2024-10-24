@@ -11,17 +11,25 @@ fn greet(name: &str) -> String {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, fuck, get_users, get_posts])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            fuck,
+            get_users,
+            get_posts,
+            god_damn_it
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
 
 #[tauri::command]
-fn fuck(name: &str) -> String {
-    format!(
-        "You know what, fuck you, fuck you, and especially fuck you, {}!",
-        name
-    )
+fn fuck() -> String {
+    "You know what, fuck you, fuck you, and especially fuck you".to_string()
+}
+
+#[tauri::command]
+fn god_damn_it() -> String {
+    "Holy shit, man. What can I say, man, Mamba out!".to_string()
 }
 
 #[derive(Serialize)]

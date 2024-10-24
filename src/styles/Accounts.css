@@ -1,42 +1,67 @@
 .accounts-container {
-  padding: 20px;
+  font-family: 'San Francisco', 'Arial', sans-serif; /* 苹果系统默认字体 */
+  color: #333;
+  text-align: center;
 }
 
 .add-account-btn {
-  background: #007bff;
-  color: #fff;
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
   border: none;
-  padding: 10px 15px;
-  margin-bottom: 20px;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 15px; /* 圆角按钮 */
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
+  transition: background-color 0.3s; /* 按钮悬停效果 */
 }
 
-.account-list {
-  display: flex;
-  flex-wrap: wrap;
+.add-account-btn:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc; /* 文本框边框 */
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px; /* 圆角文本框 */
+  font-size: 16px;
+  width: calc(200px - 20px - 2px); /* 宽度调整，减去边框和内边距 */
 }
 
 .account-card {
-  background: #fff;
-  border: 1px solid #e1e4e8;
-  border-radius: 5px;
-  padding: 20px;
+  border: 1px solid #e7e7e7;
+  padding: 15px;
   margin: 10px;
-  width: calc(33.333% - 20px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: inline-block;
+  width: 200px; /* 宽度调整 */
+  background-color: #fff; /* 添加背景颜色 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
 .account-card h3 {
-  margin-top: 0;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.account-card p {
+  font-size: 16px;
+  color: #666;
 }
 
 .account-card button {
-  background: #007bff;
-  color: #fff;
+  background-color: #007aff; /* 苹果风格的蓝色 */
+  color: white;
   border: none;
   padding: 5px 10px;
-  margin-right: 5px;
-  border-radius: 3px;
+  margin: 5px;
+  border-radius: 5px; /* 圆角按钮 */
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.3s; /* 按钮悬停效果 */
+}
+
+.account-card button:hover {
+  background-color: #0056b3;
 }
